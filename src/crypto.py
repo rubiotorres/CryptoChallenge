@@ -8,11 +8,12 @@ class decipher():
         jsonResponse = str("")
 
         for letter in self.json["cifrado"].lower():
-          compontent = str(chr(ord(letter)+3)) 
-          if(ord(letter)<=97):
+          num = ord(letter)-self.json["numero_casas"]
+          compontent = str(chr(num)) 
+          if(ord(letter)<97):
             jsonResponse = jsonResponse + letter
-          elif(ord(letter)+3>122):
-            jsonResponse = jsonResponse + str(chr(96 + (122 - ord(letter))))
+          elif(num <97):
+            jsonResponse = jsonResponse + str(chr(26 - num)))
           else:
-            jsonResponse = jsonResponse + str(chr(ord(letter)+self.json["numero_casas"]))
+            jsonResponse = jsonResponse + compontent
         return jsonResponse

@@ -9,9 +9,11 @@ if __name__ == "__main__":
     json = jsoncontent(con.getRequest())
     mssg = decipher(json.json)
     json.exportJson()
-    print(con.getRequest())
-    json.json["cifrado"] = mssg.decipherText()
+    print(json.json)
+    json.json["decifrado"] = mssg.decipherText()
     json.sha1Response()
     print(json.json)
+    json.exportJson()
     con.postresponse(json.json)
+
 

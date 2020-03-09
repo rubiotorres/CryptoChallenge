@@ -1,4 +1,5 @@
 import requests
+import json
 
 class ConnectDB():
     def __init__(self, url,urlpost):
@@ -14,6 +15,16 @@ class ConnectDB():
             self.attempts = self.attempts + 1
             self.getRequest()
     def postresponse(self,json):
-        header = {"content-type": "application/json"}
-        con = requests.post(self.urlpost, data=json, headers=header)
-        print(con.status_code)
+        url = "https://api.codenation.dev/v1/challenge/dev-ps/submit-solution?token=26a1b1237334125b08bc92611fca866f706fe5eb"
+
+        payload = {}
+        files = [
+            ('answer', open('/home/rubio/Documents/CryptoChallenge/exportedjson/answer.json','rb'))
+        ]
+        headers = {
+            'Content-Type': 'multipart/form-data; boundary=--------------------------486920556469742056617375'
+        }
+
+        response = requests.post(url, files= files)
+
+        print(response.text.encode('utf8'))
