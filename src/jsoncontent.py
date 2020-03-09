@@ -6,7 +6,7 @@ class jsoncontent():
         self.json = json
         
     def exportJson(self):
-        with open('/home/rubio/Documents/CryptoChallenge/exportedjson/answer.json', 'w') as f:
+        with open('/home/rubio/Documents/CryptoChallenge/data/exportedjson/answer.json', 'w') as f:
             json.dump(self.json, f)
     
     @property

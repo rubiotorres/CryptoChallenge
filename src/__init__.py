@@ -14,6 +14,6 @@ if __name__ == "__main__":
     json.sha1Response()
     print(json.json)
     json.exportJson()
-    con.postresponse(json.json)
+    con.postresponse()
 
 
